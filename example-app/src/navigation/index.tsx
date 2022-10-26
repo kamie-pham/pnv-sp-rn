@@ -35,24 +35,24 @@ function RootNavigation({}: Props) {
   );
 }
 
-function MainStackNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{ contentStyle: { backgroundColor: "white" } }}
-    >
-      <Stack.Group
-        screenOptions={(navigation) => ({
-          headerShadowVisible: false,
-          headerTitleAlign: "center",
-          headerShown: false,
-        })}
-      >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="FeedScreen" component={FeedScreen} />
-      </Stack.Group>
-    </Stack.Navigator>
-  );
-}
+// function MainStackNavigator() {
+//   return (
+//     <Stack.Navigator
+//       screenOptions={{ contentStyle: { backgroundColor: "white" } }}
+//     >
+//       <Stack.Group
+//         screenOptions={(navigation) => ({
+//           headerShadowVisible: false,
+//           headerTitleAlign: "center",
+//           headerShown: false,
+//         })}
+//       >
+//         <Stack.Screen name="Home" component={HomeScreen} />
+//         <Stack.Screen name="FeedScreen" component={FeedScreen} />
+//       </Stack.Group>
+//     </Stack.Navigator>
+//   );
+// }
 
 function BottomTabNavigator() {
   const homeTabRef = React.useRef();
@@ -77,17 +77,19 @@ function BottomTabNavigator() {
       })}
     >
     <BottomTab.Screen
-      name="HomeTab"
-      component={HomeScreen}
-      options={({ navigation }: HomeTabScreenProps<"HomeTab">) => ({
-					title: 'Home',
-      })}
-    />
-    <BottomTab.Screen
       name="FeedTab"
       component={FeedScreen}
       options={({ navigation }: HomeTabScreenProps<"FeedTab">) => ({
         title: 'Feed',
+        // headerShown: false
+      })}
+    />
+    <BottomTab.Screen
+      name="HomeTab"
+      component={HomeScreen}
+      options={({ navigation }: HomeTabScreenProps<"HomeTab">) => ({
+					title: 'Home',
+          headerShown: false
       })}
     />
     </BottomTab.Navigator>
